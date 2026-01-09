@@ -1,0 +1,196 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    <style>
+        /* Keep your existing styles */
+        .btn {
+            display: inline-block;
+            padding: 18px 28px;
+            margin: 0 10px;
+            background: whitesmoke;
+            text-decoration: none;
+            color: black;
+            border-radius: 15px;
+            font-size: 18px;
+            transition: 0.3s; 
+        }
+
+        .btn:hover {
+            background-color: #ffccdd;
+            color: white; 
+        }
+
+        .btn:active {
+            background-color: #ff6699; 
+            transform: scale(0.95); 
+        }
+
+        .home-box {
+            background-color: #fde6ef;
+            width: 85%;
+            margin: 50px auto;
+            padding:50px;
+            border-radius: 35px;
+            box-shadow: 0 12px 30px rgba(255,105,180,0.3);
+            /* new line to push footer down */
+            min-height: calc(100vh - 300px); /* viewport height minus header/nav/footer approx */
+        }
+
+        .home-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .home-content img {
+            width: 360px;
+            border-radius: 25px;
+        }
+
+        .home-name {
+            font-size: 48px;
+            font-family: "Titan One", sans-serif;
+            color: #741b47;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            display: inline-block;
+        }
+        .social-icon img {
+            width: 40px;       
+            height: 40px;
+            margin-top: 15px;   
+            transition: transform 0.3s;
+        }
+
+        .social-icon img:hover {
+            transform: scale(1.2);  
+        }
+
+        .current-time {
+            font-size: 20px;
+            color: #741b47;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 16px;
+            padding: 20px 0;
+            clear: both;
+        }
+
+        #clock {
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: #cb83a7;
+            text-align: justify;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body 
+    style="margin:0; font-family: Arial;">
+
+    <div style="
+        background-image: url('images2/white.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ">
+        <h1 style="
+            font-size: 70px;
+            color: pink;
+            text-align: center;
+            font-weight: bold;
+            -webkit-text-stroke: 3px hotpink;
+            text-shadow: 4px 4px lightpink;
+        ">
+            A GLIMPSE <br> OF ME
+        </h1>
+    </div>
+
+    <!-- Navigation -->
+    <div style="background-color:#f6a9c9; text-align:center; padding:15px;">
+        <a href="welcome_page.html" class="btn">Home</a>
+        <a href="my_biodata.html" class="btn">Biodata</a>
+        <a href="my_family.html" class="btn">Family</a>
+        <a href="my_friends.html" class="btn">Friends</a>
+        <a href="my_cat.html" class="btn">Cat</a>
+        <a href="travel_experience.html" class="btn">Travel</a>
+        <a href="my_song.html" class="btn">Song</a>
+        <a href="my_gallery.html" class="btn">Gallery</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="home-box">
+        <div class="home-content">
+            <img src="images2/myself.jpg" alt="Me">
+
+            <div>
+                <h3 class="home-name">ARIYANA AULIA</h3>
+                <p style="font-size:20px; color:#741b47; line-height:1.6;">
+                    Hi there! You’ve found my cozy corner of the internet. Here, I share glimpses of my life, the people and pets I love, and the adventures that make each day special. I hope you enjoy exploring my stories and moments.
+                </p>
+
+                <!-- Social icons -->
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/arynaliaa" target="_blank" class="social-icon" title="My Instagram Acc">
+                        <img src="images2/instalogo.jpg" alt="Instagram" />
+                    </a>
+                    <a href="https://www.facebook.com/AriyanaAulia" target="_blank" class="social-icon" title="My Facebook Acc">
+                        <img src="images2/fblogo.jpg" alt="Facebook" />
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&to=aariyana.aulia@email.com" target="_blank" class="social-icon" title="Email me">
+                         <img src="images2/mail.jpg" alt="Email">
+                    </a>
+                </div>
+
+                <div id="clock"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (outside home-box!) -->
+    <div class="footer">
+        © 2026 Ariyana Aulia | IMD318
+    </div>
+
+    <!-- Clock script -->
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            let ampm = hours >= 12 ? "PM" : "AM";
+
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+
+            hours = hours < 10 ? "0"+hours : hours;
+            minutes = minutes < 10 ? "0"+minutes : minutes;
+            seconds = seconds < 10 ? "0"+seconds : seconds;
+
+            document.getElementById("clock").innerHTML =
+                hours + ":" + minutes + ":" + seconds + " " + ampm;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html>
